@@ -1,11 +1,3 @@
-# API 响应分析：性能监控数据
-
-| 字段 | 值 |
-|------|-----|
-| 请求ID | 9E9D2F78-7C57-58A6-AA3D-E70BD4A4D4B7 |
-| 状态码 | 200 (成功) |
-| 成功率 | true |
-
 ## 节点数据
 
 | 节点 | 请求数 | 平均耗时 | 错误数 |
@@ -25,3 +17,32 @@
 1. 12% 错误率需要排查
 2. 1.6秒平均响应时间较长，可能存在性能瓶颈
 3. `agentarts-memory` 节点显示 0 请求，说明监控数据可能只统计了出口层
+
+## 错误信息示例
+```
+2026-06-04 15:17:49,299 - agentarts.sdk.memory.inner.dataplane - INFO - DataPlane closed
+Exception in thread Thread-2797 (insert_memory):
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/home/ubuntu/openclaw-viewer/.venv/lib/python3.12/site-packages/opentelemetry/instrumentation/threading/__init__.py", line 152, in __wrap_threading_run
+    return call_wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/workspace/query.py", line 49, in insert_memory
+    memories = client.list_memories(space_id=space_id, limit=10)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/openclaw-viewer/.venv/lib/python3.12/site-packages/agentarts/sdk/memory/client.py", line 884, in list_memories
+    return self._data_plane.list_memories(space_id, limit, offset, filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/openclaw-viewer/.venv/lib/python3.12/site-packages/agentarts/sdk/memory/inner/dataplane.py", line 257, in list_memories
+    result = self.client.list_memories(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/openclaw-viewer/.venv/lib/python3.12/site-packages/agentarts/sdk/service/memory_service.py", line 667, in list_memories
+    return self._make_request(method="GET", path=f"/v1/core/spaces/{space_id}/memories", params=params,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/openclaw-viewer/.venv/lib/python3.12/site-packages/agentarts/sdk/service/memory_service.py", line 352, in _make_request
+    raise MemoryAPIException(
+agentarts.sdk.service.memory_service.MemoryAPIException: [APIG.0203] HTTP 504: Backend timeout
+```

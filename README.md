@@ -9,11 +9,11 @@
 |举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/awsagent/log_analysis_report.md)  |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcagent/log_analysis_report.md) | [link](https://github.com/qsupremacy/aliyun-demo/blob/main/agentrun/log-analysis-report.md) |
 
 ## memory相关测试
-| 对比项       | aws-agentmemory | volc-agentkit   | aliyun-agentrun   |
-|------      |------------   |----------- | ----------- |
-|写请求      |/   | 0.048s | / |
-|读请求      |~0.22s   | 0.213s | / |
-|举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/agentmemory/report-analysis.md)  |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcmemory/report.md) | / |
+| 对比项       | aws-agentmemory | volc-agentkit   | aliyun-agentrun   | agent-demo|
+|------      |------------   |----------- | ----------- | -----------------|
+|写请求      |/        | 0.048s | / | 0.05s  |
+|读请求      |~0.22s   | 0.213s | / | 0.608s |
+|举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/agentmemory/report-analysis.md)  |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcmemory/report.md) | / | https://github.com/qsupremacy/agent-demo/blob/main/memory/logs_summary.md |
 
 
 ## claw相关测试

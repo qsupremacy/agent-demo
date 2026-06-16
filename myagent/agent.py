@@ -95,10 +95,10 @@ class LangChainAgent:
             messages.append(SystemMessage(content=system_prompt))
         messages.append(HumanMessage(content=query))
 
-        #response = await llm.ainvoke(messages)
+        response = await llm.ainvoke(messages)
 
         return {
-            "response": "response.content",
+            "response": response.content,
             "status": "success",
             "agent": self.name,
             "model": self.model_name,

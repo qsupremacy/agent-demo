@@ -113,6 +113,7 @@ class LangChainAgent:
             client = AmapMCPClient(self.amap_api_key)
             await client.initialize()
             self._amap_tools = client.get_tools()
+            print(f"\n{'='*60}\nAvailable Amap MCP Tools: {[t.name for t in self._amap_tools]}\n{'='*60}\n")
         return self._amap_tools or []
 
     async def run(
@@ -160,6 +161,11 @@ class LangChainAgent:
         for msg in result.get('messages', []):
             if hasattr(msg, 'content') and msg.content:
                 response_content = msg.content
+
+        # Remove LangChain think tags for debug print
+        import re
+        debug_content = re.sub(r'<think>.*?</think>', '', response_content, flags=re.DOTALL).strip()
+        print(f"\n{'='*60}\n{debug_content}\n{'='*60}\n")
 
         return {
             "response": response_content,

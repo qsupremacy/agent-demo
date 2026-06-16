@@ -1,0 +1,8 @@
+--index-url https://mirrors.aliyun.com/pypi/simple/
+--trusted-host mirrors.aliyun.com
+
+pydantic>=2.10.0
+agentarts-sdk
+langchain>=0.1.0
+langchain-openai>=0.1.0
+langchain-core>=0.1.0

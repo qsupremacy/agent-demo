@@ -20,6 +20,8 @@ Usage:
 """
 
 import os
+import json
+import httpx
 from typing import Dict, Any, Optional, List
 from dotenv import load_dotenv
 
@@ -27,6 +29,52 @@ from agentarts.sdk import AgentArtsRuntimeApp, RequestContext
 
 # Load environment variables from .env file
 load_dotenv()
+
+# --- Monkey-patch httpx to log MCP request/response bodies ---
+_original_handle_async_request = httpx.AsyncClient.send
+
+async def _patched_send(self, request, *args, **kwargs):
+    """Intercept httpx requests to log MCP request/response details."""
+    url_str = str(request.url)
+    if "mcp.amap.com" in url_str:
+        body = request.content
+        try:
+            body_json = json.loads(body) if body else None
+        except (json.JSONDecodeError, TypeError):
+            body_json = body.decode("utf-8", errors="replace") if isinstance(body, bytes) else str(body)
+
+        print(f"\n{'='*60}")
+        print(f">>> MCP HTTP REQUEST")
+        print(f"    Method: {request.method}")
+        print(f"    URL:    {url_str}")
+        print(f"    Headers: {dict(request.headers)}")
+        print(f"    Body:")
+        print(json.dumps(body_json, indent=2, ensure_ascii=False) if isinstance(body_json, (dict, list)) else str(body_json))
+        print(f"{'='*60}")
+
+    response = await _original_handle_async_request(self, request, *args, **kwargs)
+
+    if "mcp.amap.com" in url_str:
+        # Read response body without consuming it
+        await response.aread()
+        resp_body = response.content
+        try:
+            resp_json = json.loads(resp_body)
+        except (json.JSONDecodeError, TypeError):
+            resp_json = resp_body.decode("utf-8", errors="replace") if isinstance(resp_body, bytes) else str(resp_body)
+
+        print(f"\n{'='*60}")
+        print(f"<<< MCP HTTP RESPONSE")
+        print(f"    Status:  {response.status_code}")
+        print(f"    Headers: {dict(response.headers)}")
+        print(f"    Body:")
+        print(json.dumps(resp_json, indent=2, ensure_ascii=False) if isinstance(resp_json, (dict, list)) else str(resp_json))
+        print(f"{'='*60}")
+
+    return response
+
+httpx.AsyncClient.send = _patched_send
+# --- End monkey-patch ---
 
 app = AgentArtsRuntimeApp()
 

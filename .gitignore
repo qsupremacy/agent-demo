@@ -4,3 +4,4 @@ navagent/nav.py
 navagent/.agentarts_config.yaml
 agents/.agentarts_config.yaml
 .agentarts_config.yaml
+__pycache__/

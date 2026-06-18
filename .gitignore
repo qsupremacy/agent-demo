@@ -1,5 +1,6 @@
 myagent/.agentarts_config.yaml
 myagent/nav.py
 navagent/nav.py
+navagent/.agentarts_config.yaml
 agents/.agentarts_config.yaml
 .agentarts_config.yaml

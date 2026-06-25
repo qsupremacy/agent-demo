@@ -1,11 +1,15 @@
 # XXX 内部摸底报告
 
 ## 沙箱空载测试
-
+* 冷请求：新用户，请求hello，端到端完整返回的耗时  
+* 热请求：复用冷请求的会话，请求hello，端到端完整返回的耗时
+* XXX(空载)：以上请求使用Langchain框架，但没有调用LLM，收到请求后，直接返回。
+* 环境：以下测试均通过公网访问测试，如果走内网，预计耗时可以减少100ms左右
+  
 | 对比项       | aws-agentcore | volc-agentkit   | aliyun-agentrun   | agent-demo
 |------      |------------    |-----------   | ----------- | ---------- |
-|热请求      |500 ~ 800 ms     | 1000-1100 ms | 1026 ms     | 2.5s |
-|冷请求      |7400 ~ 8000 ms   | ~5300 ms     | 2-3 秒      | >15s |
+|热请求(空载)      |500 ~ 800 ms     | 1000-1100 ms | 1026 ms     | 2.5s |
+|冷请求(空载)      |7400 ~ 8000 ms   | ~5300 ms     | 2-3 秒      | >15s |
 |举证        |[link](https://github.com/qsupremacy/aws-demo/blob/main/awsagent/log_analysis_report.md)  | [link](https://github.com/qsupremacy/volc-demo/blob/main/volcagent/log_analysis_report.md) | [link](https://github.com/qsupremacy/aliyun-demo/blob/main/agentrun/log-analysis-report.md) | [link](https://github.com/qsupremacy/agent-demo/blob/main/agents/report.md) |
 
 ## memory相关测试

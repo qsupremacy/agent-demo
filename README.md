@@ -13,7 +13,7 @@
 |------      |------------   |----------- | ----------- | -----------------|
 |写请求      |/              | 0.048s      | /          | 0.05s  |
 |读请求      |~0.22s         | 0.213s |      /          | 0.608s |
-|举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/agentmemory/report-analysis.md) |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcmemory/report.md) [link](https://github.com/qsupremacy/agent-demo/blob/main/memory/logs_summary.md) |
+|举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/agentmemory/report-analysis.md) |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcmemory/report.md) |
 
 ## claw相关测试
 冷请求：新用户、新会话，请求hello，端到端完整返回的耗时。
@@ -26,7 +26,7 @@ XXX(空载)：以上请求耗时减去LLM调用的时间（LLM的耗时通过平
 |冷请求(空载)|/              | /          | ~4.3s       | ?|
 |热请求      |/              | /          | ~4s         | 10s|
 |热请求(空载)|/              | /          | ~1.3s       | ?|
-|举证        |/              |/           | [link](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/blank20260625_report.md)[link](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/diff_report.md)   | / |
+|举证        |/              |/           | [冷，](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/diff_report.md)[热](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/blank20260625_report.md)| / |
 
 
 ## 附录

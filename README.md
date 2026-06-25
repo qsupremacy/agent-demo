@@ -23,7 +23,7 @@
 | 对比项      | aws-xxx | volc-xxx   | aliyun-jvscrew   | agent-demo |
 |------      |------------   |----------- | ----------- |----------- |
 |冷请求      |/              | /          | ~7.85s      | 1min01s|
-|冷请求(空载)|/              | /          | ~4.3s       | ?|
+|冷请求(空载)|/              | /          | ~3.1s       | ?|
 |热请求      |/              | /          | ~4s         | 10s|
 |热请求(空载)|/              | /          | ~1.3s       | ?|
 |举证        |/              |/           | [冷，](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/diff_report.md)[热](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/blank20260625_report.md)| / |

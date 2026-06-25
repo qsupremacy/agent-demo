@@ -16,9 +16,9 @@
 |举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/agentmemory/report-analysis.md) |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcmemory/report.md) |
 
 ## claw相关测试
-冷请求：新用户、新会话，请求hello，端到端完整返回的耗时。
-热请求：复用冷请求的会话，请求hello，端到端完整返回的耗时。
-XXX(空载)：以上请求耗时减去LLM调用的时间（LLM的耗时通过平台提供的链路耗时获得）
+* 冷请求：新用户、新会话，请求hello，端到端完整返回的耗时  
+* 热请求：复用冷请求的会话，请求hello，端到端完整返回的耗时  
+* XXX(空载)：以上请求耗时减去LLM调用的时间（LLM的耗时通过平台提供的链路耗时获得）  
 
 | 对比项      | aws-xxx | volc-xxx   | aliyun-jvscrew   | agent-demo |
 |------      |------------   |----------- | ----------- |----------- |

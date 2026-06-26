@@ -8,7 +8,7 @@
   
 | 对比项       | aws-agentcore | volc-agentkit   | aliyun-agentrun   | agent-demo
 |------      |------------    |-----------   | ----------- | ---------- |
-|热请求(空载)      |500 ~ 800 ms     | <200 ms       | <200 ms        | 2.5s |
+|热请求(空载)      |500 ~ 800 ms     | <200 ms       | <100 ms       | 2.5s |
 |冷请求(空载)      |7400 ~ 8000 ms   | ~8 s         | ~8s(预估)      | >15s |
 |举证        |[link](https://github.com/qsupremacy/aws-demo/blob/main/awsagent/log_analysis_report.md)  | [link](https://github.com/qsupremacy/volc-demo/blob/main/volcagent/log_analysis_report.md) | [link](https://github.com/qsupremacy/aliyun-demo/blob/main/agentrun/log-analysis-report.md) | [link](https://github.com/qsupremacy/agent-demo/blob/main/agents/report.md) |
 

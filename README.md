@@ -1,6 +1,6 @@
 # XXX 内部摸底报告
 
-## 沙箱空载测试
+## 一、沙箱空载测试
 ### 基本概念
 * 冷请求：新用户请求hello，触发拉起新实例，端到端完整返回的耗时  
 * 热请求：复用冷请求拉取的实例，请求hello，端到端完整返回的耗时
@@ -19,14 +19,14 @@
 * volc-agentkit 链路上海->北京。agentkit是进程级安全隔离，冷请求为估算数据。
 * aliyun-agentrun 链路上海->上海。AgentRun默认进程级隔离，支持切换为MicroVM隔离
 
-## memory相关测试
+## 二、memory相关测试
 | 对比项       | aws-agentmemory | volc-agentkit   | aliyun-agentrun   | agent-demo|
 |------      |------------   |----------- | ----------- | -----------------|
 |写请求      |/              | 0.048s      | /          | 0.05s  |
 |读请求      |~0.22s         | 0.213s |      /          | 0.608s |
 |举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/agentmemory/report-analysis.md) |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcmemory/report.md) |
 
-## claw相关测试
+## 三、claw相关测试
 * 冷请求：新用户、新会话，请求hello，端到端完整返回的耗时  
 * 热请求：复用冷请求的会话，请求hello，端到端完整返回的耗时  
 * XXX(空载)：以上请求耗时减去LLM调用的时间（LLM的耗时通过平台提供的链路耗时获得）  
@@ -40,7 +40,7 @@
 |举证        |/              |/           | [冷，](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/diff_report.md)[热](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/blank20260625_report.md)| / |
 
 
-## 附录
+## X、附录
 ### JVSCrew
 ## 客户端 vs 服务端耗时对比
 

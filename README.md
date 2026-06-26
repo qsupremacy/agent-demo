@@ -15,7 +15,7 @@
 |举证              |[link](https://github.com/qsupremacy/aws-demo/blob/main/awsagent/log_analysis_report.md)  | [link](https://github.com/qsupremacy/volc-demo/blob/main/volcagent/same_diff_analysis.md) | [link](https://github.com/qsupremacy/aliyun-demo/blob/main/agentrun/session-modes-report.md) | [link](https://github.com/qsupremacy/agent-demo/blob/main/agents/report.md) |
 
 ### 备注
-* aws-agentcore 链路上海->新加坡。物理距离较远
+* aws-agentcore 链路上海->新加坡。物理距离较远,aws提供的console测试时延<200ms
 * volc-agentkit 链路上海->北京。agentkit是进程级安全隔离，冷请求为估算数据。
 * aliyun-agentrun 链路上海->上海。AgentRun默认进程级隔离，支持切换为MicroVM隔离
 

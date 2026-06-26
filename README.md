@@ -8,8 +8,8 @@
   
 | 对比项       | aws-agentcore | volc-agentkit   | aliyun-agentrun   | agent-demo
 |------      |------------    |-----------   | ----------- | ---------- |
-|热请求(空载)      |500 ~ 800 ms     | 1000-1100 ms | 1026 ms     | 2.5s |
-|冷请求(空载)      |7400 ~ 8000 ms   | ~5300 ms     | 2-3 秒      | >15s |
+|热请求(空载)      |500 ~ 800 ms     | <200 ms       | <200 ms        | 2.5s |
+|冷请求(空载)      |7400 ~ 8000 ms   | ~8 s         | ~8s(预估)      | >15s |
 |举证        |[link](https://github.com/qsupremacy/aws-demo/blob/main/awsagent/log_analysis_report.md)  | [link](https://github.com/qsupremacy/volc-demo/blob/main/volcagent/log_analysis_report.md) | [link](https://github.com/qsupremacy/aliyun-demo/blob/main/agentrun/log-analysis-report.md) | [link](https://github.com/qsupremacy/agent-demo/blob/main/agents/report.md) |
 
 ## memory相关测试
@@ -79,3 +79,9 @@ default
 你好！我在这里，随时待命。有什么问题或需求请直接告诉我
 ```
 
+### 客服答复
+```
+售后工程师
+2026-06-26 10:40:34
+开启Header Session会话隔离后时延升至10s属正常现象。因系统为每个会话分配独立实例并强制1:1绑定，首次请求需冷启动（如模型加载、NAS挂载），导致延迟显著上升。基线100ms为无隔离时复用实例的性能，隔离后因资源独占和初始化开销，10s时延符合预期。 详细信息请参考： 函数计算-会话隔离配置
+```

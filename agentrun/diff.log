@@ -1,0 +1,387 @@
+[2026-07-07 15:30:11] Starting request   1 (session: eea44acb-07ea-4b7a-a94f-43eeaac05707)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: eea44acb-07ea-4b7a-a94f-43eeaac05707                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:13] Finished request   1 (session: eea44acb-07ea-4b7a-a94f-43eeaac05707) - elapsed: 2834 ms
+[2026-07-07 15:30:13] Starting request   2 (session: 42c292ed-fe24-43fb-bf0a-420896c8c21d)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 42c292ed-fe24-43fb-bf0a-420896c8c21d                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:23] Finished request   2 (session: 42c292ed-fe24-43fb-bf0a-420896c8c21d) - elapsed: 10032 ms
+[2026-07-07 15:30:23] Starting request   3 (session: 9169fea8-9911-4cb3-8b8d-aa9de4f6ef46)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 9169fea8-9911-4cb3-8b8d-aa9de4f6ef46                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:26] Finished request   3 (session: 9169fea8-9911-4cb3-8b8d-aa9de4f6ef46) - elapsed: 2619 ms
+[2026-07-07 15:30:26] Starting request   4 (session: fdcd1dbf-edd1-497d-9001-efaf91c59f82)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: fdcd1dbf-edd1-497d-9001-efaf91c59f82                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:28] Finished request   4 (session: fdcd1dbf-edd1-497d-9001-efaf91c59f82) - elapsed: 2364 ms
+[2026-07-07 15:30:28] Starting request   5 (session: becb0fb2-fa54-40de-be9c-33c0d2d9ac5f)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: becb0fb2-fa54-40de-be9c-33c0d2d9ac5f                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:31] Finished request   5 (session: becb0fb2-fa54-40de-be9c-33c0d2d9ac5f) - elapsed: 2369 ms
+[2026-07-07 15:30:31] Starting request   6 (session: d0070b01-f291-4a4c-b237-a8c90e2ffe2e)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: d0070b01-f291-4a4c-b237-a8c90e2ffe2e                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:38] Finished request   6 (session: d0070b01-f291-4a4c-b237-a8c90e2ffe2e) - elapsed: 7586 ms
+[2026-07-07 15:30:38] Starting request   7 (session: f622c2e0-e9ee-4f7a-9e41-a3039b63f30b)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: f622c2e0-e9ee-4f7a-9e41-a3039b63f30b                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:41] Finished request   7 (session: f622c2e0-e9ee-4f7a-9e41-a3039b63f30b) - elapsed: 2281 ms
+[2026-07-07 15:30:41] Starting request   8 (session: 20badf1f-b542-4b52-b7e3-d70c437d8bdb)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 20badf1f-b542-4b52-b7e3-d70c437d8bdb                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:43] Finished request   8 (session: 20badf1f-b542-4b52-b7e3-d70c437d8bdb) - elapsed: 2298 ms
+[2026-07-07 15:30:43] Starting request   9 (session: 900dd709-6331-4f46-b994-2232c1e37c32)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 900dd709-6331-4f46-b994-2232c1e37c32                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:45] Finished request   9 (session: 900dd709-6331-4f46-b994-2232c1e37c32) - elapsed: 2455 ms
+[2026-07-07 15:30:45] Starting request  10 (session: cf8d20c8-7079-48ab-8df4-caba555f8125)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: cf8d20c8-7079-48ab-8df4-caba555f8125                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:48] Finished request  10 (session: cf8d20c8-7079-48ab-8df4-caba555f8125) - elapsed: 2445 ms
+[2026-07-07 15:30:48] Starting request  11 (session: d1f9ae9e-549e-4a67-9820-179f60f78d7b)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: d1f9ae9e-549e-4a67-9820-179f60f78d7b                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:30:50] Finished request  11 (session: d1f9ae9e-549e-4a67-9820-179f60f78d7b) - elapsed: 2459 ms
+[2026-07-07 15:30:50] Starting request  12 (session: c65baac0-c32a-4436-8133-eaf7b69e1363)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: c65baac0-c32a-4436-8133-eaf7b69e1363                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:31:07] Finished request  12 (session: c65baac0-c32a-4436-8133-eaf7b69e1363) - elapsed: 16577 ms
+[2026-07-07 15:31:07] Starting request  13 (session: 7a1e38a5-fac7-4b99-bfe7-b9d90f837d5b)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 7a1e38a5-fac7-4b99-bfe7-b9d90f837d5b                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:31:09] Finished request  13 (session: 7a1e38a5-fac7-4b99-bfe7-b9d90f837d5b) - elapsed: 2323 ms
+[2026-07-07 15:31:09] Starting request  14 (session: 5ebcc6d1-5189-4f1b-a0ae-ad86045b535a)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 5ebcc6d1-5189-4f1b-a0ae-ad86045b535a                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:31:12] Finished request  14 (session: 5ebcc6d1-5189-4f1b-a0ae-ad86045b535a) - elapsed: 2299 ms
+[2026-07-07 15:31:12] Starting request  15 (session: cb1c9a4a-b38b-4f63-aee0-69ead21f0b2d)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: cb1c9a4a-b38b-4f63-aee0-69ead21f0b2d                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:31:14] Finished request  15 (session: cb1c9a4a-b38b-4f63-aee0-69ead21f0b2d) - elapsed: 2602 ms
+[2026-07-07 15:31:14] Starting request  16 (session: ff320c8f-058e-4172-b7e0-cf8b65fb9e48)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: ff320c8f-058e-4172-b7e0-cf8b65fb9e48                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:31:17] Finished request  16 (session: ff320c8f-058e-4172-b7e0-cf8b65fb9e48) - elapsed: 2373 ms
+[2026-07-07 15:31:17] Starting request  17 (session: 5819e818-29c8-4f5f-a7e2-3ba11d22dbd2)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 5819e818-29c8-4f5f-a7e2-3ba11d22dbd2                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:31:29] Finished request  17 (session: 5819e818-29c8-4f5f-a7e2-3ba11d22dbd2) - elapsed: 12804 ms
+[2026-07-07 15:31:29] Starting request  18 (session: 46b52609-53d7-4ce5-aa43-8f691aaf79fa)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 46b52609-53d7-4ce5-aa43-8f691aaf79fa                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:31:32] Finished request  18 (session: 46b52609-53d7-4ce5-aa43-8f691aaf79fa) - elapsed: 2378 ms
+[2026-07-07 15:31:32] Starting request  19 (session: 5ac648db-7740-42ca-8a6f-7a23b4f387b2)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 5ac648db-7740-42ca-8a6f-7a23b4f387b2                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:31:34] Finished request  19 (session: 5ac648db-7740-42ca-8a6f-7a23b4f387b2) - elapsed: 2440 ms
+[2026-07-07 15:31:34] Starting request  20 (session: ce74c2e3-d213-4550-937e-f0368dd26a2d)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: ce74c2e3-d213-4550-937e-f0368dd26a2d                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Response:
+{
+  "response": "response.content",
+  "status": "success",
+  "agent": "myagent",
+  "model": "minimax-m2.5"
+}
+[2026-07-07 15:31:40] Finished request  20 (session: ce74c2e3-d213-4550-937e-f0368dd26a2d) - elapsed: 5593 ms
+[2026-07-07 15:31:40] Starting request  21 (session: d306ef49-a060-4686-b10f-92b72a3b648e)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: d306ef49-a060-4686-b10f-92b72a3b648e                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+invoke_agent failed: status=403, data={'code': 403, 'data': None, 'message': 'Failed to create sandbox: resource quota exceeded, maximum  
+20 sandboxes pre sandbox template allowed, current: 20 (85868b10-326c-445a-b81d-cc7cc0143330)'} error=Failed to create sandbox: resource  
+quota exceeded, maximum 20 sandboxes pre sandbox template allowed, current: 20 (85868b10-326c-445a-b81d-cc7cc0143330)                     
+× ERROR: invoke_agent failed (HTTP 403): Failed to create sandbox: resource quota exceeded, maximum 20 sandboxes pre sandbox template 
+allowed, current: 20 (85868b10-326c-445a-b81d-cc7cc0143330)
+[2026-07-07 15:31:41] Finished request  21 (session: d306ef49-a060-4686-b10f-92b72a3b648e) - elapsed: 1095 ms
+[2026-07-07 15:31:41] Starting request  22 (session: 042d2492-460a-4ed4-b1e0-871d1efffa50)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 042d2492-460a-4ed4-b1e0-871d1efffa50                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+invoke_agent failed: status=403, data={'code': 403, 'data': None, 'message': 'Failed to create sandbox: resource quota exceeded, maximum  
+20 sandboxes pre sandbox template allowed, current: 20 (70adb895-8f70-4669-94c3-895e3ec737a8)'} error=Failed to create sandbox: resource  
+quota exceeded, maximum 20 sandboxes pre sandbox template allowed, current: 20 (70adb895-8f70-4669-94c3-895e3ec737a8)                     
+× ERROR: invoke_agent failed (HTTP 403): Failed to create sandbox: resource quota exceeded, maximum 20 sandboxes pre sandbox template 
+allowed, current: 20 (70adb895-8f70-4669-94c3-895e3ec737a8)
+[2026-07-07 15:31:42] Finished request  22 (session: 042d2492-460a-4ed4-b1e0-871d1efffa50) - elapsed: 828 ms
+[2026-07-07 15:31:42] Starting request  23 (session: b6356f59-da02-49be-8865-a87949d34735)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: b6356f59-da02-49be-8865-a87949d34735                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[2026-07-07 15:31:42] Finished request  23 (session: b6356f59-da02-49be-8865-a87949d34735) - elapsed: 718 ms
+[2026-07-07 15:31:42] Starting request  24 (session: 480de993-5f3c-4503-b9bd-b1bc60fee83d)
+╭──────────────────────────────────────────────────────────── Invoke Request ────────────────────────────────────────────────────────────╮
+│ Mode: Cloud                                                                                                                            │
+│ Agent: myagent                                                                                                                         │
+│ Session: 480de993-5f3c-4503-b9bd-b1bc60fee83d                                                                                          │
+│ Endpoint: https://defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com                                                        │
+│ Auth Type: IAM                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[2026-07-07 15:31:43] Finished request  24 (session: 480de993-5f3c-4503-b9bd-b1bc60fee83d) - elapsed: 718 ms
+[2026-07-07 15:31:43] Starting request  25 (session: 75a41e31-219e-4df5-83b9-6fb34901c0af)

@@ -26,18 +26,6 @@
 |读请求      |~0.22s           | 0.213s           | ~0.238s       | 0.608s |
 |举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/agentmemory/report-analysis.md) |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcmemory/report.md) |[link](https://github.com/qsupremacy/volc-demo/blob/main/viking/read.md)|[link](https://github.com/qsupremacy/agent-demo/blob/main/memory/logs_summary.md)
 
-## 三、claw相关测试
-* 冷请求：新用户、新会话，请求hello，端到端完整返回的耗时  
-* 热请求：复用冷请求的会话，请求hello，端到端完整返回的耗时  
-* XXX(空载)：以上请求耗时减去LLM调用的时间（LLM的耗时通过平台提供的链路耗时获得）  
-
-| 对比项      | aws-xxx | volc-xxx   | aliyun-jvscrew   | agent-demo |
-|------      |------------   |----------- | ----------- |----------- |
-|冷请求      |/              | /          | ~7.85s      | 1min01s|
-|冷请求(空载)|/              | /          | ~3.1s       | ?|
-|热请求      |/              | /          | ~4s         | 10s|
-|热请求(空载)|/              | /          | ~1.3s       | ?|
-|举证        |/              |/           | [冷，](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/diff_report.md)[热](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/blank20260625_report.md)| / |
 
 ## 三、memory准确率测试
 
@@ -49,6 +37,20 @@
 | top_200 | 55.26 % | 65.1 %     | 63.82 % |
 
 [详细对比](https://github.com/qsupremacy/memory-benchmarks/edit/agentkit/compare.md)
+
+
+## 四、claw相关测试
+* 冷请求：新用户、新会话，请求hello，端到端完整返回的耗时  
+* 热请求：复用冷请求的会话，请求hello，端到端完整返回的耗时  
+* XXX(空载)：以上请求耗时减去LLM调用的时间（LLM的耗时通过平台提供的链路耗时获得）  
+
+| 对比项      | aws-xxx | volc-xxx   | aliyun-jvscrew   | agent-demo |
+|------      |------------   |----------- | ----------- |----------- |
+|冷请求      |/              | /          | ~7.85s      | 1min01s|
+|冷请求(空载)|/              | /          | ~3.1s       | ?|
+|热请求      |/              | /          | ~4s         | 10s|
+|热请求(空载)|/              | /          | ~1.3s       | ?|
+|举证        |/              |/           | [冷，](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/diff_report.md)[热](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/blank20260625_report.md)| / |
 
 ## X、附录
 ### JVSCrew

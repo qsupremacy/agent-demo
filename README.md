@@ -20,11 +20,11 @@
 * aliyun-agentrun 链路上海->上海。AgentRun默认进程级隔离，支持切换为MicroVM隔离
 
 ## 二、memory相关测试
-| 对比项       | aws-agentmemory | volc-agentkit   | aliyun-agentrun   | agent-demo|
-|------      |------------   |----------- | ----------- | -----------------|
-|写请求      |/              | 0.048s      | /          | 0.05s  |
-|读请求      |~0.22s         | 0.213s |      /          | 0.608s |
-|举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/agentmemory/report-analysis.md) |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcmemory/report.md) |
+| 对比项       | aws-agentmemory| volc-agentkit   | volc-viking   | agent-demo|
+|------      |------------     |-----------      | -----------   | -----------------|
+|写请求      |/                | 0.048s           | ~0.068s       | 0.05s  |
+|读请求      |~0.22s           | 0.213s           | ~0.238s       | 0.608s |
+|举证     |[link](https://github.com/qsupremacy/aws-demo/blob/main/agentmemory/report-analysis.md) |[link](https://github.com/qsupremacy/volc-demo/blob/main/volcmemory/report.md) |[link](https://github.com/qsupremacy/volc-demo/blob/main/viking/read.md)|[link](https://github.com/qsupremacy/agent-demo/blob/main/memory/logs_summary.md)
 
 ## 三、claw相关测试
 * 冷请求：新用户、新会话，请求hello，端到端完整返回的耗时  

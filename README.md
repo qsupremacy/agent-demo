@@ -1,6 +1,6 @@
 # XXX 内部摸底报告
 
-## 一、沙箱空载测试
+## 一、沙箱性能测试
 ### 基本概念
 * 冷请求：新用户请求hello，触发拉起新实例，端到端完整返回的耗时  
 * 热请求：复用冷请求拉取的实例，请求hello，端到端完整返回的耗时
@@ -10,8 +10,8 @@
 ### 实测数据
 | 对比项       | aws-agentcore | volc-agentkit   | aliyun-agentrun   | agent-demo
 |------       |------------    |-----------   | ----------- | ---------- |
-|冷请求(空载)      |7400 ~ 8000 ms   | ~8s(预估)      | ~8s    | >15s |
-|热请求(空载)      |500 ~ 800 ms     | <200 ms       | <100 ms       | 2.5s |
+|冷请求(空载)      |7400 ~ 8000 ms   | ~8s(预估)      | ~8s           | >15s -> p95(12s)|
+|热请求(空载)      |500 ~ 800 ms     | <200 ms       | <100 ms       | 2.5s -> p95(1s)|
 |举证              |[link](https://github.com/qsupremacy/aws-demo/blob/main/awsagent/log_analysis_report.md)  | [link](https://github.com/qsupremacy/volc-demo/blob/main/volcagent/same_diff_analysis.md) | [link](https://github.com/qsupremacy/aliyun-demo/blob/main/agentrun/session-modes-report.md) | [link](https://github.com/qsupremacy/agent-demo/blob/main/agentrun/diff.md) |
 
 ### 备注
@@ -19,7 +19,7 @@
 * volc-agentkit 链路上海->北京。agentkit是进程级安全隔离，冷请求为估算数据。
 * aliyun-agentrun 链路上海->上海。AgentRun默认进程级隔离，支持切换为MicroVM隔离
 
-## 二、memory相关测试
+## 二、memory读写性能测试
 | 对比项       | aws-agentmemory| volc-agentkit   | volc-viking   | agent-demo|
 |------      |------------     |-----------      | -----------   | -----------------|
 |写请求      |/                | 0.048s           | ~0.068s       | 0.05s  |
@@ -39,7 +39,7 @@
 [详细对比](https://github.com/qsupremacy/memory-benchmarks/edit/agentkit/compare.md)
 
 
-## 四、claw相关测试
+## 四、claw性能测试
 * 冷请求：新用户、新会话，请求hello，端到端完整返回的耗时  
 * 热请求：复用冷请求的会话，请求hello，端到端完整返回的耗时  
 * XXX(空载)：以上请求耗时减去LLM调用的时间（LLM的耗时通过平台提供的链路耗时获得）  

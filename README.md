@@ -39,6 +39,16 @@
 |热请求(空载)|/              | /          | ~1.3s       | ?|
 |举证        |/              |/           | [冷，](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/diff_report.md)[热](https://github.com/qsupremacy/aliyun-demo/blob/main/jvscrew/blank20260625_report.md)| / |
 
+## 三、memory准确率测试
+
+| Cutoff | volc-momory | agent-demo | AWS-agentcore |
+|---      |---:     |---:        |---:|
+| top_10  | 51.32 % | **68.4 %** | 56.58 % |
+| top_20  | 55.26 % | 65.1 %     | 63.16 % |
+| top_50  | 53.95 % | 69.1 %     | **68.42 %** ← 峰值 |
+| top_200 | 55.26 % | 65.1 %     | 63.82 % |
+
+[详细对比](https://github.com/qsupremacy/memory-benchmarks/edit/agentkit/compare.md)
 
 ## X、附录
 ### JVSCrew

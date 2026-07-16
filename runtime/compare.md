@@ -14,21 +14,31 @@
 | 客户端 → 服务端 | 贵阳 ECS → 贵阳 AgentArts | 上海 ECS → 上海 AgentRun |
 | 接入层 | **ELB**（云负载均衡） | **VPC EP**（终端节点服务 / PrivateLink 类） |
 | 鉴权 | 已去除 CLI 依赖、AK/SK 签名 | 仍走网关策略校验 |
-| 业务实现 | Python Web 框架（uvicorn），**直接输出 mock** | 需做 **私有协议 → OpenAI Chat 协议** 适配 |
+| 业务实现 | Python Web 框架（uvicorn），直接输出 mock | 业务代码同样直接输出 mock，**不感知 OpenAI 协议** |
+| 平台层 | 私有 HTTP 协议，端到端无适配 | **平台网关**做 **私有协议 ⇄ OpenAI Chat** 双向适配 |
 | 调用路径 | `/runtimes/runtime-sdk013/invocations?endpoint=Latest` | `/agent-runtimes/agent-code-AawC7/endpoints/Default/invocations/openai/v1/chat/completions` |
 | 响应体 | 90 bytes（私有协议 mock 结果） | 246 bytes（OpenAI Chat Completion 完整 JSON） |
 
 ### 调用链拓扑
 
 ```
-【AgentArts（贵阳）】
-ECS ──TLS──▶ ELB ──▶ uvicorn(Python) ──▶ mock 直出
-                                                       （P50 ≈ 6ms）
-
-【AgentRun（上海）】
-ECS ──TLS──▶ VPC EP ──▶ 网关鉴权 ──▶ 协议适配器 ──▶ Runtime(mock) ──▶ 协议适配器 ──▶ VPC EP ──▶ ECS
-                                                       （P50 ≈ 25ms）
+【AgentArts（贵阳）】                                          【AgentRun（上海）】
+                                                           
+ECS ──TLS──▶ ELB ──▶ uvicorn(Python) ──▶ mock 直出              ECS ──TLS──▶ VPC EP ──▶ 网关鉴权 ──▶ 平台协议适配器
+   │                  │                    │                    │              │           │           │  ← 平台层
+   │                  │ 私有协议 90B        │                    │              │           │           ▼
+   │                  ▼                    │                    │              │           │       Runtime(mock)
+   │◀─────mock 响应──┘                     │                    │              │           │           │  ← 业务层
+   │                                       │                    │              │           │   私有协议 mock
+   │                                       │                    │              │           ▼           │
+   │                                       │                    │              │      平台协议适配器 ◀─┘
+   │                                       │                    │              ▼           │
+   │                                       │                    │◀────响应──── VPC EP ──────┘
+   │                                       │                    │
+  6ms (P50)                            246B → 0ms                  25ms (P50)
 ```
+
+> 关键差异：**AgentRun 的协议适配发生在平台网关层，业务代码完全不感知 OpenAI 协议**。所以 8 ms 的协议转换开销属于平台架构成本，不应算到 Runtime 或业务侧。
 
 ---
 
@@ -65,17 +75,26 @@ AgentRun:   min=14  median=23  P95=34  P99=55  max=320  σ≈9.0   ← 较宽、
 
 ### 3.2 延迟按链路拆分
 
-| 段 | AgentArts | AgentRun | 差值 | 归因 |
-|---|---|---|---|---|
-| TLS 建链 | 3 ms | 7 ms | **+4 ms** | VPC EP 比 ELB 多一跳终端节点封装 |
-| 网关 / 转发 | ~1 ms | ~3 ms | **+2 ms** | VPC EP 安全策略 + 路由 |
-| 鉴权 | 0 ms（已剔除） | ~3 ms | **+3 ms** | AgentRun 网关仍做策略校验 |
-| **协议适配** | 0 ms | **~7–9 ms** | **+8 ms** | OpenAI Chat ⇄ 内部协议解析 / 序列化 |
-| Runtime 执行 | ~2 ms | ~2 ms | 0 | 都是 mock，开销相当 |
-| 响应序列化 | ~0 ms（90 B） | ~1 ms（246 B） | **+1 ms** | OpenAI JSON 字段更多 |
-| **合计** | ~6 ms | ~24–25 ms | **~19 ms** | 与实测 25−6=19 ms 吻合 |
+| 段 | AgentArts | AgentRun | 差值 | 归因 | 归属 |
+|---|---|---|---|---|---|
+| TLS 建链 | 3 ms | 7 ms | **+4 ms** | VPC EP 比 ELB 多一跳终端节点封装 | 接入层 |
+| 网关 / 转发 | ~1 ms | ~3 ms | **+2 ms** | VPC EP 安全策略 + 路由 | 接入层 |
+| 鉴权 | 0 ms（已剔除） | ~3 ms | **+3 ms** | AgentRun 网关仍做策略校验 | 平台层 |
+| **协议适配** | 0 ms | **~7–9 ms** | **+8 ms** | OpenAI Chat ⇄ 内部协议解析 / 序列化 | **平台层** |
+| Runtime 执行 | ~2 ms | ~2 ms | 0 | 都是 mock，开销相当 | 业务层 |
+| 响应序列化 | ~0 ms（90 B） | ~1 ms（246 B） | **+1 ms** | OpenAI JSON 字段更多 | 平台层 |
+| **合计** | ~6 ms | ~24–25 ms | **~19 ms** | 与实测 25−6=19 ms 吻合 | — |
 
-> **协议适配占了 ~8 ms，是 AgentRun 这条路径最大的固定开销**，不是网络也不是 Runtime 本身慢。
+按归属汇总：
+
+| 归属 | AgentArts | AgentRun | 差值 |
+|---|---|---|---|
+| 接入层（TLS + 转发） | ~4 ms | ~10 ms | +6 ms |
+| **平台层**（鉴权 + 协议适配 + 序列化） | ~0 ms | ~13 ms | **+13 ms** |
+| 业务层（Runtime 执行） | ~2 ms | ~2 ms | 0 |
+| **合计** | ~6 ms | ~25 ms | **+19 ms** |
+
+> **协议适配占了 ~8 ms，是 AgentRun 这条路径最大的固定开销，全部由平台承担，业务代码无需关心**。这 8 ms 与 OpenAI 兼容能力是绑定的：享受 OpenAI 生态可移植性，就要承担这一层转换成本。
 
 ---
 
@@ -101,10 +120,16 @@ AgentRun:   min=14  median=23  P95=34  P99=55  max=320  σ≈9.0   ← 较宽、
 
 2. **"QPS 40 vs 157" 不能直接比**：
    - AgentArts 每次调用服务端只做"返回 mock 字符串"，本质是测 ELB+uvicorn 的转发能力
-   - AgentRun 每次调用服务端做"鉴权 + 协议转换 + mock + 序列化 OpenAI JSON"，本质是测网关+适配器能力
+   - AgentRun 每次调用服务端做"鉴权 + **平台层**协议转换 + mock + 序列化 OpenAI JSON"，本质是测网关+适配器能力
    - 任务复杂度差 ~4 倍，QPS 差 ~4 倍，**系数一致，结构合理**
 
-3. **无抖动、无失败**：
+3. **业务代码侧完全等价**：
+   - AgentArts：Python Web 框架返回 mock
+   - AgentRun：业务代码同样返回 mock，**不感知 OpenAI 协议**
+   - 两者在 Runtime 执行层都是 ~2 ms，无差异
+   - **所有差距都来自平台层架构选择，与业务实现无关**
+
+4. **无抖动、无失败**：
    - AgentRun P99=55 ms、P100=320 ms，但 σ=9 ms——是稳定偏高，不是抖动
    - AgentArts P99=8 ms、P100=490 ms，但 10k 里几乎全在 6–8 ms，490 ms 是孤例
    - 两侧均无排队 / 超时 / 雪崩迹象
@@ -112,11 +137,20 @@ AgentRun:   min=14  median=23  P95=34  P99=55  max=320  σ≈9.0   ← 较宽、
 ### 5.2 19 ms 差距的归因
 
 ```
-总差距 19 ms ≈ VPC EP 接入 (+4ms) + 网关鉴权 (+3ms) + 协议适配 (+8ms) + 序列化 (+1ms) + 其他 (~3ms)
-            ──── 接入方式固有成本 ────   ─── 鉴权 + 转换 不可消除 ───
+总差距 19 ms ≈ 接入层 +6ms + 平台层 +13ms + 业务层 0ms
+                    │              │
+                    │              └── 鉴权 +3ms + 协议适配 +8ms + 序列化 +1ms（OpenAI 兼容成本）
+                    └── VPC EP 多一跳 + 策略
 ```
 
-**~18 ms 是架构差异（接入方式 + 协议转换），只有 ~1 ms 可能归到 Runtime 本身**。两个 Runtime 当前表现都在合理范围内。
+| 归属 | 差值 | 是否可消除 |
+|---|---|---|
+| 接入层 | +6 ms | 切换接入方式（不用 VPC EP）可消除 |
+| **平台层** | **+13 ms** | **不可消除**：享受 OpenAI 兼容就要承担 |
+| 业务层 | 0 | — |
+| **合计** | **+19 ms** | — |
+
+**所有差距都来自平台架构差异，业务代码侧两边等价。** 评估 AgentRun 时应该把 13 ms 的"OpenAI 兼容税"算作平台功能的合理开销，而不是性能问题。
 
 ---
 
@@ -125,11 +159,11 @@ AgentRun:   min=14  median=23  P95=34  P99=55  max=320  σ≈9.0   ← 较宽、
 | 维度 | 结论 |
 |---|---|
 | **网络** | 两侧内网 RTT 都是 ~0.7 ms，无差异 |
-| **接入层** | VPC EP 比 ELB 多 ~4 ms（建链 + 策略），属于接入方式固有成本 |
-| **协议层** | AgentRun 多 ~8 ms 做 OpenAI ⇄ 私有协议转换，是这条路径的主要开销且难以消除 |
-| **运行时本身** | 两边 mock 执行都很快（~2 ms），没有可比出优劣 |
+| **接入层** | VPC EP 比 ELB 多 ~6 ms（建链 + 策略），属于接入方式固有成本 |
+| **平台层 / OpenAI 兼容** | AgentRun 多 ~13 ms（鉴权 + 协议适配 + 序列化），由平台网关承担，业务代码不感知 |
+| **运行时本身** | 两边 mock 执行都很快（~2 ms），**业务侧完全等价** |
 | **稳定性** | 两侧 0 失败、P99 内无抖动，均合格 |
-| **整体评价** | AgentArts 路径更短、更轻；AgentRun 路径功能更完整（OpenAI 兼容），开销与功能成正比 |
+| **整体评价** | AgentArts 路径更短、更轻；AgentRun 多出的 13 ms 是 **OpenAI 兼容税**，与功能（生态可移植性）成正比，业务侧零负担 |
 
 ---
 
@@ -142,8 +176,8 @@ AgentRun:   min=14  median=23  P95=34  P99=55  max=320  σ≈9.0   ← 较宽、
 
 ### 7.2 想真正对比"运行时"
 
-- 让两边都跳过协议层：AgentRun 直接走内部协议路径调用，绕过 OpenAI 适配器
-- 那时差距应该只剩"接入层 4 ms + 序列化 1 ms ≈ 5 ms"，才是 Runtime 本身的差异
+- 业务代码侧两边等价（都是 ~2ms mock），没有可比出优劣的空间
+- 想榨出 AgentRun 剩余 13 ms 的"OpenAI 兼容税"，只能在 AgentRun 上**绕过平台适配器**走内部协议路径——但这意味着放弃 OpenAI 兼容性，不建议作为性能基线
 
 ### 7.3 想看并发能力
 

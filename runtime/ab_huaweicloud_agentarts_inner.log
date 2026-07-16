@@ -1,0 +1,78 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        uvicorn
+Server Hostname:        defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,3072,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com
+
+Document Path:          /runtimes/runtime-sdk013/invocations?endpoint=Latest
+Document Length:        90 bytes
+
+Concurrency Level:      1
+Time taken for tests:   63.677 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      3110000 bytes
+Total body sent:        3770000
+HTML transferred:       900000 bytes
+Requests per second:    157.04 [#/sec] (mean)
+Time per request:       6.368 [ms] (mean)
+Time per request:       6.368 [ms] (mean, across all concurrent requests)
+Transfer rate:          47.70 [Kbytes/sec] received
+                        57.82 kb/s sent
+                        105.51 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        3    3   0.3      3       6
+Processing:     2    3   4.8      3     485
+Waiting:        2    3   4.8      3     485
+Total:          6    6   4.9      6     490
+
+Percentage of the requests served within a certain time (ms)
+  50%      6
+  66%      6
+  75%      6
+  80%      7
+  90%      7
+  95%      7
+  98%      7
+  99%      8
+ 100%    490 (longest request)
+
+
+root@ecs-ed9e:~# ping defaultgw-gzqtey3bmz.cn-southwest-2.huaweicloud-agentarts.com
+PING cfca1e4b-3f90-46c0-a60a-8f9eaf8ab56d.elb.cn-southwest-2.huaweicloud-elb.com (1.95.196.175) 56(84) bytes of data.
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=1 ttl=61 time=0.939 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=2 ttl=61 time=0.721 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=3 ttl=61 time=0.720 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=4 ttl=61 time=0.581 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=5 ttl=61 time=0.681 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=6 ttl=61 time=0.735 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=7 ttl=61 time=0.577 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=8 ttl=61 time=0.741 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=9 ttl=61 time=0.566 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=10 ttl=61 time=0.591 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=11 ttl=61 time=0.597 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=12 ttl=61 time=0.591 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=13 ttl=61 time=0.739 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=14 ttl=61 time=0.692 ms
+64 bytes from ecs-1-95-196-175.compute.hwclouds-dns.com (1.95.196.175): icmp_seq=15 ttl=61 time=0.737 ms

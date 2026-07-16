@@ -1,0 +1,47 @@
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 1916215180918953.agentrun-data-vpc.cn-shanghai.aliyuncs.com (be patient)
+
+
+Server Software:        
+Server Hostname:        1916215180918953.agentrun-data-vpc.cn-shanghai.aliyuncs.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_128_GCM_SHA256,2048,128
+TLS Server Name:        1916215180918953.agentrun-data-vpc.cn-shanghai.aliyuncs.com
+
+Document Path:          /agent-runtimes/agent-code-AawC7/endpoints/Default/invocations/ag-ui/agent
+Document Length:        607 bytes
+
+Concurrency Level:      1
+Time taken for tests:   243.563 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      11430000 bytes
+Total body sent:        3960000
+HTML transferred:       6070000 bytes
+Requests per second:    41.06 [#/sec] (mean)
+Time per request:       24.356 [ms] (mean)
+Time per request:       24.356 [ms] (mean, across all concurrent requests)
+Transfer rate:          45.83 [Kbytes/sec] received
+                        15.88 kb/s sent
+                        61.71 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        5    7   1.7      7      83
+Processing:     8   17   8.6     15     201
+Waiting:        6   13   7.5     11     198
+Total:         13   24   8.9     23     206
+
+Percentage of the requests served within a certain time (ms)
+  50%     23
+  66%     24
+  75%     26
+  80%     27
+  90%     30
+  95%     33
+  98%     46
+  99%     60
+ 100%    206 (longest request)

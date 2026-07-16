@@ -1,0 +1,68 @@
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 1916215180918953.agentrun-data-vpc.cn-shanghai.aliyuncs.com (be patient)
+
+
+Server Software:        
+Server Hostname:        1916215180918953.agentrun-data-vpc.cn-shanghai.aliyuncs.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_128_GCM_SHA256,2048,128
+TLS Server Name:        1916215180918953.agentrun-data-vpc.cn-shanghai.aliyuncs.com
+
+Document Path:          /agent-runtimes/agent-code-AawC7/endpoints/Default/invocations/openai/v1/chat/completions
+Document Length:        246 bytes
+
+Concurrency Level:      1
+Time taken for tests:   249.700 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      7390000 bytes
+Total body sent:        4110000
+HTML transferred:       2460000 bytes
+Requests per second:    40.05 [#/sec] (mean)
+Time per request:       24.970 [ms] (mean)
+Time per request:       24.970 [ms] (mean, across all concurrent requests)
+Transfer rate:          28.90 [Kbytes/sec] received
+                        16.07 kb/s sent
+                        44.98 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        5    7   1.9      7      90
+Processing:     8   17   8.7     16     313
+Waiting:        8   17   8.7     16     313
+Total:         14   25   9.0     23     320
+
+Percentage of the requests served within a certain time (ms)
+  50%     23
+  66%     25
+  75%     27
+  80%     28
+  90%     30
+  95%     34
+  98%     45
+  99%     55
+ 100%    320 (longest request)
+
+root@iZuf6hn4hb74v1y7j2a9t3Z:~# ping 1916215180918953.agentrun-data-vpc.cn-shanghai.aliyuncs.com
+PING 1916215180918953.agentrun-data-vpc.cn-shanghai.aliyuncs.com (172.18.0.99) 56(84) bytes of data.
+64 bytes from 172.18.0.99: icmp_seq=1 ttl=102 time=0.884 ms
+64 bytes from 172.18.0.99: icmp_seq=2 ttl=102 time=0.757 ms
+64 bytes from 172.18.0.99: icmp_seq=3 ttl=102 time=0.703 ms
+64 bytes from 172.18.0.99: icmp_seq=4 ttl=102 time=0.675 ms
+64 bytes from 172.18.0.99: icmp_seq=5 ttl=102 time=0.656 ms
+64 bytes from 172.18.0.99: icmp_seq=6 ttl=102 time=0.633 ms
+64 bytes from 172.18.0.99: icmp_seq=7 ttl=102 time=0.715 ms
+64 bytes from 172.18.0.99: icmp_seq=8 ttl=102 time=0.705 ms
+64 bytes from 172.18.0.99: icmp_seq=9 ttl=102 time=0.694 ms
+64 bytes from 172.18.0.99: icmp_seq=10 ttl=102 time=0.710 ms
+64 bytes from 172.18.0.99: icmp_seq=11 ttl=102 time=0.666 ms
+64 bytes from 172.18.0.99: icmp_seq=12 ttl=102 time=0.685 ms
+64 bytes from 172.18.0.99: icmp_seq=13 ttl=102 time=0.688 ms
+64 bytes from 172.18.0.99: icmp_seq=14 ttl=102 time=0.766 ms
+64 bytes from 172.18.0.99: icmp_seq=15 ttl=102 time=0.683 ms
+64 bytes from 172.18.0.99: icmp_seq=16 ttl=102 time=0.738 ms
+64 bytes from 172.18.0.99: icmp_seq=17 ttl=102 time=0.766 ms
+64 bytes from 172.18.0.99: icmp_seq=18 ttl=102 time=0.739 ms
